@@ -1692,6 +1692,10 @@ describe("io", () => {
     ];
     const actual = df.toRecords();
     expect(JSON.stringify(actual)).toEqual(JSON.stringify(expected));
+
+    const serializedDate = actual[0].date;
+    expect(serializedDate.constructor.name).toEqual("Date");
+    expect(serializedDate instanceof Date).toEqual(true);
   });
   test("toObject", () => {
     const expected = {
